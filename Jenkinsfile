@@ -13,7 +13,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t ranaprathap/devops-integration .'
+                    sh 'docker build -t varsha153/devops-integration .'
                 }
             }
         }
@@ -21,10 +21,10 @@ pipeline {
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                   sh 'docker login -u ranaprathap -p ${dockerhubpwd}'
+                   sh 'docker login -u varsha153 -p ${dockerhubpwd}'
 
 }
-                   sh 'docker push ranaprathap/devops-integration'
+                   sh 'docker push varsha153/devops-integration'
                 }
             }
         }
